@@ -2,6 +2,7 @@ from mp_api.client import MPRester
 import math
 import numpy as np
 from decimal import Decimal
+import os
 
 class Improve_MP:
     compostos = []
@@ -262,15 +263,20 @@ class Improve_MP:
         return elemento_massa[elemento]
     
     def qe_input(self):
-        with open('tmp', 'w') as file:
+        current_dir = os.getcwd()
+        tmp_path = os.path.join(current_dir, 'tmp')
+
+        with open(tmp_path, 'w') as file:
             file.write(str(self.estrutura))
-        a, b, c, alpha, beta, gamma, nat, tipos_atomicos, vetores, prefix = Improve_MP.extrair_parametros_rede('tmp')
+
+        a, b, c, alpha, beta, gamma, nat, tipos_atomicos, vetores, prefix = Improve_MP.extrair_parametros_rede(tmp_path)
         ar,cgr,sgr,cb,sa,ca = Improve_MP.calculo_parametros_lattice(a, b, c, alpha, beta, gamma)
         diag = np.identity(3)
         stdbase = np.array([[1.0 / ar, -cgr / sgr / ar, cb * a], [0.0, b * sa, b * ca], [0.0, 0.0, c]],dtype=float,)
         base = np.dot(stdbase, diag)
 
-        with open(f'{self.nome}.in', 'w') as file: 
+        output_path = os.path.join(current_dir, f'{self.nome}.in')
+        with open(output_path, 'w') as file: 
             file.write(f"&CONTROL\nprefix = '{prefix}'\n/\n&SYSTEM\nibrav = 0\nnat = {nat}\nntyp = {len(tipos_atomicos)}\n/\n&ELECTRONS\n/\n")
             file.write("CELL_PARAMETERS angstrom\n")
             for vetor in base:
