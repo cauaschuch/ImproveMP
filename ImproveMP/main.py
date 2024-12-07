@@ -5,8 +5,29 @@ from decimal import Decimal
 import os
 
 class Improve_MP:
+    """
+    Classe para gerenciar compostos provenientes do Materials Project (MP) e criar objetos que armazenam
+    informações relevantes
+
+    Attributes:
+        compostos (list): Lista de todos os compostos criados por esta classe
+
+    Methods:
+        criar_composto(composto, chave, simetria=''):
+            Cria um objeto Improve_MP com base nas informações de um composto do Materials Project obtidos através da API.
+    """
     compostos = []
     def __init__(self,nome,sistema_cristalino,mpid,estrutura,space_group):
+        """
+        Cria um novo composto.
+
+        Args:
+            name (str): nome do composto com sua estequiometria
+            crystal_system (str): sistema cristalino, ex: cúbico, hexagonal etc
+            mpid (str): ID do Materials Project
+            structure (Structure): posições atômicas, ângulos e parâmetros de rede estão nesse arg
+            space_group (int): número de 0-230
+        """
         self.nome=nome
         self.mpid=mpid
         self.estrutura=estrutura
@@ -263,6 +284,36 @@ class Improve_MP:
         return elemento_massa[elemento]
     
     def qe_input(self):
+        """
+        essa função cria um arquivo de texto ".in" no formato do quantum espresso
+
+        Description:
+            esse método cria um arquivo (.in) para o Quantum ESPRESSO (QE) a partir da estrutura
+            do material;o arquivo contém informações de parâmetros de rede, espécies atômicas, posições 
+            atômicas e kpoints, incompletos, restando ao usuário completá-los após a geração
+
+        Steps:
+            1. extrai parâmetros de rede e dados atômicos da estrutura do material
+            2. calcula os parâmetros de rede padrão e matrizes de transformação
+            3. formata as seções: CELL_PARAMETERS, ATOMIC_SPECIES, ATOMIC_POSITIONS e K_POINTS
+            4. escreve os dados formatados em um arquivo de entrada para o QE
+
+        Returns:
+            não retorna valores > O arquivo `.in` é salvo no diretório de trabalho atual, apenas um aviso é dado
+            pelo terminal quando finalizado
+
+        Output:
+            um arquivo `.in` para o Quantum ESPRESSO com o nome `<nome_do_material>.in`
+    
+        File Format:
+            - CONTROL: Contém informações gerais, como o `prefix`.
+            - SYSTEM: Informações sobre a rede e o número de átomos/tipos.
+            - CELL_PARAMETERS: Vetores de rede em angstroms.
+            - ATOMIC_SPECIES: Massas atômicas e pseudopotenciais.
+            - ATOMIC_POSITIONS: Posições atômicas no cristal.
+            - K_POINTS: Geração automática de pontos-k.
+        """
+
         current_dir = os.getcwd()
         tmp_path = os.path.join(current_dir, 'tmp')
 
