@@ -3,6 +3,7 @@ import math
 import numpy as np
 from decimal import Decimal
 import os
+import subprocess
 
 class Improve_MP:
     """
@@ -16,8 +17,10 @@ class Improve_MP:
         criar_composto(composto, chave, simetria=''):
             Cria um objeto Improve_MP com base nas informações de um composto do Materials Project obtidos através da API.
     """
+
     compostos = []
     chave = None
+
     def __init__(self,nome,sistema_cristalino,mpid,estrutura,space_group):
         """
         Cria um novo composto.
@@ -34,7 +37,8 @@ class Improve_MP:
         self.estrutura=estrutura
         self.space_group = space_group
         self.sistema_cristalino = sistema_cristalino
-        Improve_MP.compostos.append(self)
+        if self not in Improve_MP.compostos:
+            Improve_MP.compostos.append(self)
         
     def __str__(self):
         return f'{self.nome} |  {self.sistema_cristalino} #{self.space_group}'
@@ -42,6 +46,11 @@ class Improve_MP:
     def __repr__(self):
         return f"{self.nome}"
     
+    def __eq__(self, other):
+        if isinstance(other, Improve_MP):
+            return self.nome == other.nome
+        return False
+
     @classmethod
     def minha_chave(cls, key):
         cls.chave = key
@@ -66,9 +75,10 @@ class Improve_MP:
                     dados = mpr.materials.get_data_by_id(mpids)
                     sistema_cristalino = dados.symmetry.crystal_system      
                     internacional = dados.symmetry.number
+                    nome = dados.formula_pretty
                     #Improve_MP(composto,sistema_cristalino,mpids,estrutura,internacional)
                     print('>>>Composto criado<<<')
-                    return cls(composto, sistema_cristalino, mpids, estrutura, internacional)
+                    return cls(nome, sistema_cristalino, mpids, estrutura, internacional)
                 else:
                             docs =  mpr.materials.summary.search(chemsys=composto)
                             mpids = [doc.material_id for doc in docs]
@@ -77,8 +87,8 @@ class Improve_MP:
                                 dados = mpr.materials.get_data_by_id(mpids[i])
                                 sistema_cristalino = dados.symmetry.crystal_system   
                                 internacional = dados.symmetry.number
-                                composto = dados.formula_pretty
-                                Improve_MP(composto,sistema_cristalino,mpids[i],estrutura,internacional)
+                                nome = dados.formula_pretty
+                                Improve_MP(nome,sistema_cristalino,mpids[i],estrutura,internacional)
 
                             print('>>>Compostos criados ***acesse pela lista Improve_MP.compostos<<<')
 
@@ -354,9 +364,51 @@ class Improve_MP:
             file.write('K_POINTS automatic')
         print(f'>>>Seu input {self.nome}.in está pronto<<<')
 
+    @classmethod
+    def novas_car(cls,composto):
+        """
+    Adquire características adicionais de um composto do Materials Project (MP) com base no interesse do usuário.
 
-Improve_MP.minha_chave('H2RaVIDWeAR6N1y8E9lh9XYqB8mwVog7')
-u = Improve_MP.criar_composto('Nb6Ni16Si7')
-Improve_MP.qe_input(u)
-Improve_MP.criar_composto('Nb-Ni-Si')
-print(Improve_MP.compostos)
+    Este método interage com a API do Materials Project para buscar características específicas de um composto,
+    identificadas pelo atributo `mpid` da instância passada. O usuário pode especificar quais características
+    deseja obter, e o método verifica se essas informações estão disponíveis no banco de dados do MP.
+
+    Args:
+        composto (Improve_MP): Objeto da classe `Improve_MP` contendo o `mpid` do composto.
+
+    Interação do Usuário:
+        - O usuário será solicitado a inserir o nome de uma característica do composto, que deve estar listada
+          em `mpr.materials.summary.available_fields`.
+        - O loop continuará até que o usuário digite 'end', indicando que não deseja adicionar mais características.
+        """
+
+        key = cls.chave
+        with MPRester(key) as mpr:
+            docs = mpr.materials.summary.search(material_ids=composto.mpid)
+            jr=docs[0]
+
+            print(mpr.materials.summary.available_fields)
+            l=[]
+            m=[]
+            s=input('Qual Caracteristica do Composto você teria interesse?')
+
+            while s != 'end':
+                l= l + [f'jr.{s}']
+                m=m +[f'{s}']
+                s=input('Tem alguma outra caracteristica que gostaria de adquirir?')
+        
+            for n in range(len(l)):
+                if f'{eval(l[n])}' == 'None':
+                    print(f'{m[n]}= Não há tal caracteristica no Material Project para este composto')
+                else:
+                    print(f'{m[n]}= {eval(l[n])}')
+        
+    def xcrysden(composto):
+        """
+        não deve haver um caminho improprio para arquivo .in, por exemplo /home/usuaria/pasta python/composto.in é um caminho improprio,
+        já /home/usuaria/pasta_python/composto.in é um caminho funcional.
+
+        """
+
+        comando=f'xcrysden --pwi {composto.nome}.in'
+        subprocess.run(comando,shell=True)
