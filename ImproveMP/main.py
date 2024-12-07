@@ -17,6 +17,7 @@ class Improve_MP:
             Cria um objeto Improve_MP com base nas informações de um composto do Materials Project obtidos através da API.
     """
     compostos = []
+    chave = None
     def __init__(self,nome,sistema_cristalino,mpid,estrutura,space_group):
         """
         Cria um novo composto.
@@ -40,9 +41,14 @@ class Improve_MP:
     
     def __repr__(self):
         return f"{self.nome}"
+    
+    @classmethod
+    def minha_chave(cls, key):
+        cls.chave = key
 
-    def criar_composto(composto, chave, simetria=''):
-        key = chave
+    @classmethod
+    def criar_composto(cls,composto,simetria=''):
+        key = cls.chave
         with MPRester(key) as mpr:
                 sistemas = ['Triclinic', 'Monoclinic', 'Orthorhombic', 'Tetragonal', 'Trigonal', 'Hexagonal','Cubic']
                 if '-' not in composto:
@@ -60,8 +66,9 @@ class Improve_MP:
                     dados = mpr.materials.get_data_by_id(mpids)
                     sistema_cristalino = dados.symmetry.crystal_system      
                     internacional = dados.symmetry.number
-                    Improve_MP(composto,sistema_cristalino,mpids,estrutura,internacional)
+                    #Improve_MP(composto,sistema_cristalino,mpids,estrutura,internacional)
                     print('>>>Composto criado<<<')
+                    return cls(composto, sistema_cristalino, mpids, estrutura, internacional)
                 else:
                             docs =  mpr.materials.summary.search(chemsys=composto)
                             mpids = [doc.material_id for doc in docs]
@@ -73,9 +80,9 @@ class Improve_MP:
                                 composto = dados.formula_pretty
                                 Improve_MP(composto,sistema_cristalino,mpids[i],estrutura,internacional)
 
-                            print('>>>Compostos criados<<<')
+                            print('>>>Compostos criados ***acesse pela lista Improve_MP.compostos<<<')
 
-    
+
     @staticmethod
     def extrair_parametros_rede(filename):
         """
@@ -346,3 +353,10 @@ class Improve_MP:
                 file.write(f' {vetor[0]} {v_1:>10.8f}  {v_2:>10.8f}  {v_3:>10.8f}\n')
             file.write('K_POINTS automatic')
         print(f'>>>Seu input {self.nome}.in está pronto<<<')
+
+
+Improve_MP.minha_chave('H2RaVIDWeAR6N1y8E9lh9XYqB8mwVog7')
+u = Improve_MP.criar_composto('Nb6Ni16Si7')
+Improve_MP.qe_input(u)
+Improve_MP.criar_composto('Nb-Ni-Si')
+print(Improve_MP.compostos)
