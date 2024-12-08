@@ -113,6 +113,7 @@ class Improve_MP:
                     print('>>>Composto criado<<<')
                     return cls(nome, sistema_cristalino, mpids, estrutura, internacional)
                 else:
+                            Improve_MP.compostos = []
                             docs =  mpr.materials.summary.search(chemsys=composto)
                             mpids = [doc.material_id for doc in docs]
                             for i in range(len(mpids)):
@@ -445,3 +446,9 @@ class Improve_MP:
 
         comando=f'xcrysden --pwi {composto.nome}.in'
         subprocess.run(comando,shell=True)
+
+Improve_MP.minha_chave('H2RaVIDWeAR6N1y8E9lh9XYqB8mwVog7')
+a = Improve_MP.criar_composto('NaCl')
+b = Improve_MP.criar_composto('Mg-Nb-O')
+b = Improve_MP.compostos
+print(b)
