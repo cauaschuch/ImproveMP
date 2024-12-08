@@ -57,6 +57,39 @@ class Improve_MP:
 
     @classmethod
     def criar_composto(cls,composto,simetria=''):
+        """Busca as informações do composto desejado com base em dados extraídos da mp_api.
+
+        Args:
+            composto (str): fórmula química em string (`ex: Fe2O3; NaCl; ... `) ou elementos presentes no material separados por `"-"` (`ex: Fe-C; W-Re; Nb-Ru; ... ´).
+            
+            simetria (str): (opcional) fornecer o sistema cristalino (` 'Triclinic', 'Monoclinic', 'Orthorhombic', 'Tetragonal', 'Trigonal', 'Hexagonal','Cubic' `)
+
+        Returns:
+            if composto = fórmula, simetria:
+                tuple:
+                - nome (str): fórmula química do composto fornecido
+                - sistema_cristalino (str): simetria fornecida
+                - mpids (list): id do mateiral (mp-api)
+                - estrutura (str): dados sobre a posição dos átomos na cela unitária
+                - internacional (str): ITA number
+            
+            elif composto = fórmula:
+                tuple:
+                - nome (str): fórmula química do composto fornecido
+                - sistema_cristalino (str): simetria mais estável
+                - mpids (list): id do mateiral (mp-api)
+                - estrutura (str): dados sobre a posição dos átomos na cela unitária
+                - internacional (str): ITA number
+            
+            else composto = elementos:
+                tuple:
+                - nome (str)
+                - sistema_cristalino (str)
+                - mpids (list)
+                - estrutura (str)
+                - internacional (str)
+
+        """
         key = cls.chave
         with MPRester(key) as mpr:
                 sistemas = ['Triclinic', 'Monoclinic', 'Orthorhombic', 'Tetragonal', 'Trigonal', 'Hexagonal','Cubic']
