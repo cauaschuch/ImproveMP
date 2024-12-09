@@ -68,13 +68,13 @@ Improve_MP.minha_chave(“”)
 
     Após isso, uma segunda pergunta aparecerá no terminal "Tem alguma outra caracteristica que gostaria de adquirir?"
 
-        - Caso a resposta seja **sim**:
+    - Caso a resposta seja **sim**:
 
-            Digite a segunda característica desejada.
+        Digite a segunda característica desejada.
 
-        - Caso a resposta seja **não**: 
+    - Caso a resposta seja **não**: 
 
-            Digite end .       
+        Digite end .       
 
     Após o end, todas as características solicitadas para o composto escolhido aparecerão no terminal. Para esse exemplo as características serão referentes ao FeO.
 
