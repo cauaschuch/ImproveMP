@@ -80,12 +80,12 @@ Improve_MP.minha_chave(“”)
 
     After end, all requested characteristics for the chosen compound will appear in the terminal. For this example, the characteristics will refer to FeO.
 
-- To open Quantum EXPRESSO use Improve_MP.xcrysden() and the created material variable:
+- To open XCrySDen use Improve_MP.xcrysden() and the created material variable:
     *Note*: You need the file with the inputs to already be created to use this command.
     ```python
     Improve_MP.xcrysden(a)
     ```
-    In this example, Quantum EXPRESSO will open with the material structure.
+    In this example, XCrySDen will open with the material structure.
 
 
 

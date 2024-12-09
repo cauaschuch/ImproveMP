@@ -95,12 +95,12 @@ Insira sua chave no comando:
    escolhido aparecerão no terminal. Para esse exemplo as
    características serão referentes ao FeO.
 
-- Para abrir o Quantum EXPRESSO utilize Improve_MP.xcrysden() e a variável do material criado:
+- Para abrir o XCrySDen utilize Improve_MP.xcrysden() e a variável do material criado:
     *Obs.:* Você precisa que o arquivo com os inputs já esteja criado para utilizar esse comando.
     ``python
     Improve_MP.xcrysden(a)
     ```
-    Nesse exemplo o Quantum EXPRESSO será aberto com a estrutura do material.
+    Nesse exemplo o XCrySDen será aberto com a estrutura do material.
 
 Para colaboradores
 ------------------
