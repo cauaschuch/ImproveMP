@@ -1,4 +1,7 @@
-<center>![Logo ](https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a)<center>
+
+![Logo ](https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a)
+
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.md)
 
 # ImproveMP
 
@@ -30,10 +33,10 @@ Faça login em sua conta no Materials Project (https://next-gen.materialsproject
 **3° passo:**
 
 Em um novo arquivo, importe a biblioteca:
-
 ```python
 from ImproveMP import Improve_MP
 ```
+
 Insira sua chave no comando:
 ```python
 Improve_MP.minha_chave(“”)
