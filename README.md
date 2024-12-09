@@ -17,16 +17,22 @@ pip install ImproveMP
 ### Como usar o programa 
 
 **1° passo:** 
+
 Instale a biblioteca
+
 **2° passo:**
-Faça login e sua conta no Materials Project, clique em APIs no menu superior e obtenha a sua chave (API Key).
+
+Faça login em sua conta no Materials Project, clique em APIs no menu superior e obtenha a sua chave (API Key).
 É recomendado salvar a sua chave em algum local de fácil acesso.
+
 **3° passo:**
+
 Em um novo arquivo, importe a biblioteca:
+
 ```bash
 from ImproveMP import Improve_MP
 ```
-Utilizando a sua chave, dê o comando:
+Insira sua chave no comando:
 ```bash
 Improve_MP.minha_chave(“”)
 ```
