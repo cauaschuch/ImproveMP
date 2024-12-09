@@ -3,8 +3,8 @@
 # Path setup
 import os
 import sys
-sys.path.insert(0, os.path.abspath('C:\Users\ltbel\OneDrive\Área de Trabalho\ImproveMP\ImproveMP\ImproveMP'))
-import main.py
+sys.path.insert(0, os.path.abspath('C:\Users\ltbel\OneDrive\Área de Trabalho\ImproveMP\ImproveMP\ImproveMP\main.py'))
+import ImproveMP.main
 
 # -- Project information
 
