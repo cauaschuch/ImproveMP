@@ -1,5 +1,7 @@
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/cauaschuch/ImproveMP/blob/main/README.md)
 
+![Logo ](https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a)
+
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/cauaschuch/ImproveMP/blob/main/README.md)
 
 # ImproveMP
 
@@ -21,16 +23,16 @@ pip install ImproveMP
 
 ### How to use the program 
 
-**1° passo:** 
+**1° Step:** 
 
 Install the library.
 
-**2° passo:**
+**2° Step:**
 
 Log in to your Materials Project account (https://next-gen.materialsproject.org/api#api-key), click on APIs at the top menu and get your API Key.
 It is recommended to save your key in an easily accessible location.
 
-**3° passo:**
+**3° Step:**
 
 In a new file, import the library:
 ```python
