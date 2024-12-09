@@ -3,7 +3,7 @@
 # Path setup
 import os
 import sys
-sys.path.insert(0, os.path.abspath('C:\Users\ltbel\OneDrive\Área de Trabalho\ImproveMP\ImproveMP\ImproveMP\main.py'))
+sys.path.insert(0, os.path.abspath('C:/Users/ltbel/OneDrive/Área de Trabalho/ImproveMP/ImproveMP/ImproveMP'))
 import ImproveMP.main
 
 # -- Project information
@@ -21,6 +21,8 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
 ]
