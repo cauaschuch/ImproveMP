@@ -32,7 +32,7 @@ Improve_MP.minha_chave(“”)
 ```
 **Diferentes funcionalidades**
 
-- Para buscar vários compostos baseado em sua composição, utilize um - entre os elementos, no formato "A-B-C-..." :
+- Para buscar vários compostos baseado em sua composição, utilize um - entre os elementos, no formato "A-B-C-...":
     ```bash
     Improve_MP.criar_composto("Mg-Nb-O")
     print(Improve_MP.compostos)
@@ -44,7 +44,7 @@ Improve_MP.minha_chave(“”)
     a = Improve_MP.criar_composto(“FeO”)
     Improve_MP.qe_input(a)
     ```
-    Nesse exemplo será gerado um arquivo com todos os inputs referentes aos parâmetros de rede do FeO necessários para o quantum ESPPRESSO.
+    Nesse exemplo será gerado um arquivo com todos os inputs referentes aos parâmetros de rede do FeO necessários para o Quantum ESPRESSO.
 
 - Para obter características do material selecionado utilize Improve_MP.novas_car() e a variável do material criado:
     ```bash
@@ -52,16 +52,23 @@ Improve_MP.minha_chave(“”)
     Improve_MP.novas_car(a)
     ```
     Nesse exemplo aparecerão no terminal quais as características existentes e a pergunta "Qual Caracteristica do Composto você teria interesse?".
+
     Responda no terminal escrevendo a característica.
+
     Após isso, uma segunda pergunta aparecerá no terminal "Tem alguma outra caracteristica que gostaria de adquirir?"
+
         - Caso a resposta seja **sim**:
+
             Digite a segunda característica desejada.
+
         - Caso a resposta seja **não**: 
+
             Digite end .       
+
     Após o end, todas as características solicitadas para o composto escolhido aparecerão no terminal. Para esse exemplo as características serão referentes ao FeO.
 
 
 ## Para colaboradores
 
-O programa foi criado com intuito de uso prório na instituição de ensino dos criados e tornado público para facilitar o uso do quantum ESPRESSO para outros usuários. 
+O programa foi criado com intuito de uso prório na instituição de ensino dos criados e tornado público para facilitar o uso do Quantum ESPRESSO para outros usuários. 
 A princípio não há intenção de fazer mudanças ao código ou adicionar novas funcionalidades e não foram identificados defeitos no código que exijam alterações, portanto não há sentido em colaborações, mas agradecemos o interesse na biblioteca!
