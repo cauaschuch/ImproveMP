@@ -1,3 +1,5 @@
+![logo improve mp](https://github.com/user-attachments/assets/e8590eeb-796a-4198-89b0-b49fe2ce51cd)
+
 # ImproveMP
 
 ImproveMP é uma biblioteca pensada para auxiliar pesquisadores na criação de inputs para o software Quantum ESPRESSO, com base no banco de dados ofertado pelo Materials Project (MP).
@@ -22,38 +24,38 @@ Instale a biblioteca
 
 **2° passo:**
 
-Faça login em sua conta no Materials Project, clique em APIs no menu superior e obtenha a sua chave (API Key).
+Faça login em sua conta no Materials Project ([(https://next-gen.materialsproject.org/api#api-key)]), clique em APIs no menu superior e obtenha a sua chave (API Key).
 É recomendado salvar a sua chave em algum local de fácil acesso.
 
 **3° passo:**
 
 Em um novo arquivo, importe a biblioteca:
 
-```bash
+```python
 from ImproveMP import Improve_MP
 ```
 Insira sua chave no comando:
-```bash
+```python
 Improve_MP.minha_chave(“”)
 ```
 **Diferentes funcionalidades**
 
 - Para buscar vários compostos baseado em sua composição, utilize um - entre os elementos, no formato "A-B-C-...":
-    ```bash
+    ```python
     Improve_MP.criar_composto("Mg-Nb-O")
     print(Improve_MP.compostos)
     ```
     Nesse exemplo será gerada uma lista de materiais compostos por Magnésio, Nióbio e Oxigênio no terminal.
 
 - Para gerar o input para o Quantum ESPRESSO, primeiro defina uma variável para o composto, e depois use Improve_MP.qe_input():
-    ```bash
+    ```python
     a = Improve_MP.criar_composto(“FeO”)
     Improve_MP.qe_input(a)
     ```
     Nesse exemplo será gerado um arquivo com todos os inputs referentes aos parâmetros de rede do FeO necessários para o Quantum ESPRESSO.
 
 - Para obter características do material selecionado utilize Improve_MP.novas_car() e a variável do material criado:
-    ```bash
+    ```python
     a = Improve_MP.criar_composto(“FeO”)
     Improve_MP.novas_car(a)
     ```
