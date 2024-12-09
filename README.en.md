@@ -70,13 +70,13 @@ Improve_MP.minha_chave(“”)
 
     After that, a second question will appear on the terminal "Tem alguma outra caracteristica que gostaria de adquirir?", which translates to "Do you have any other characteristics you would like to obtain?"
 
-        - If the answer is **yes**:
+    - If the answer is **yes**:
 
-            Enter the second desired characteristic.
+        Enter the second desired characteristic.
 
-        - If the answer is **no**:
+    - If the answer is **no**:
 
-            Enter end .       
+        Enter end .       
 
     After end, all requested characteristics for the chosen compound will appear in the terminal. For this example, the characteristics will refer to FeO.
 
