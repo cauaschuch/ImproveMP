@@ -113,5 +113,3 @@ Contents
 
 .. toctree::
 
-   usage
-   main
