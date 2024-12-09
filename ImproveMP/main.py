@@ -113,6 +113,7 @@ class Improve_MP:
                     print('>>>Composto criado<<<')
                     return cls(nome, sistema_cristalino, mpids, estrutura, internacional)
                 else:
+                            Improve_MP.compostos = []
                             docs =  mpr.materials.summary.search(chemsys=composto)
                             mpids = [doc.material_id for doc in docs]
                             for i in range(len(mpids)):
