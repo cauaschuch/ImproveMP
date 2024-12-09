@@ -1,10 +1,10 @@
 # Configuration file for the Sphinx documentation builder.
 
 # Path setup
-import os
-import sys
-sys.path.insert(0, os.path.abspath('https://github.com/cauaschuch/ImproveMP/blob/62943ca462f82ed80528fc02f66100d9de1d5558/ImproveMP'))
-import ImproveMP.main
+#import os
+#import sys
+#sys.path.insert(0, os.path.abspath('https://github.com/cauaschuch/ImproveMP/blob/62943ca462f82ed80528fc02f66100d9de1d5558/ImproveMP'))
+#import ImproveMP.main
 
 # -- Project information
 

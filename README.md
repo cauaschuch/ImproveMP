@@ -23,13 +23,11 @@ pip install ImproveMP
 
 **1° Passo:** 
 
-![Video 1 ]https://github.com/user-attachments/assets/8e9de46e-adc6-401a-a80a-7c76e521924f 
+![tutorial]https://github.com/user-attachments/assets/8e9de46e-adc6-401a-a80a-7c76e521924f 
 
 Instale a biblioteca
 
 **2° Passo:**
-
-![Video 2 ]
 
 Faça login em sua conta no Materials Project (https://next-gen.materialsproject.org/api#api-key), clique em APIs no menu superior e obtenha a sua chave (API Key).
 É recomendado salvar a sua chave em algum local de fácil acesso.
