@@ -1,4 +1,4 @@
-<center>![Logo ](https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a)<\center>
+<center>![Logo ](https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a)<center>
 
 # ImproveMP
 
@@ -24,7 +24,7 @@ Instale a biblioteca
 
 **2° passo:**
 
-Faça login em sua conta no Materials Project ([https://next-gen.materialsproject.org/api#api-key]), clique em APIs no menu superior e obtenha a sua chave (API Key).
+Faça login em sua conta no Materials Project (https://next-gen.materialsproject.org/api#api-key), clique em APIs no menu superior e obtenha a sua chave (API Key).
 É recomendado salvar a sua chave em algum local de fácil acesso.
 
 **3° passo:**
