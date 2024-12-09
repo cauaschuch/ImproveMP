@@ -3,7 +3,7 @@
 
 |en|
 
-Conheça a documentação do ImproveMP! MUDOU
+Conheça a documentação do ImproveMP! 
 =========
 
 ImproveMP é uma biblioteca pensada para auxiliar pesquisadores na
@@ -108,8 +108,7 @@ colaborações, mas agradecemos o interesse na biblioteca!
 .. |en| image:: https://img.shields.io/badge/lang-en-red.svg
    :target: https://github.com/cauaschuch/ImproveMP/blob/main/README.en.md
 
-Contents
---------
+
 
 .. toctree::
 
