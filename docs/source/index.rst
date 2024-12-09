@@ -81,7 +81,7 @@ Insira sua chave no comando:
    Após isso, uma segunda pergunta aparecerá no terminal “Tem alguma
    outra caracteristica que gostaria de adquirir?”
 
-   ::
+
 
         - Caso a resposta seja **sim**:
 
