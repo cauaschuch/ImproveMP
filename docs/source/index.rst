@@ -1,12 +1,9 @@
 
 .. figure:: https://github.com/user-attachments/assets/0f7c4b08-f9e2-4172-b355-cf4b955c2d5a
-   :alt: Logo
-
-   Logo
 
 |en|
 
-Welcome to ImproveMP's documentation! 
+Conheça a documentação do ImproveMP! 
 =========
 
 ImproveMP é uma biblioteca pensada para auxiliar pesquisadores na

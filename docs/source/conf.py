@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'ImproveMP'
+copyright = '2024, Cauã Schuch, Eduardo Gadelha, Pedro Bueno, Luisa Belentani'
+author = 'Cauã Schuch, Eduardo Gadelha, Pedro Bueno e Luisa Belentani'
 
 release = '0.1'
 version = '0.1.0'
