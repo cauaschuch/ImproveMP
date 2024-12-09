@@ -23,8 +23,6 @@ pip install ImproveMP
 
 **1° Passo:** 
 
-![tutorial]https://github.com/user-attachments/assets/8e9de46e-adc6-401a-a80a-7c76e521924f 
-
 Instale a biblioteca
 
 **2° Passo:**
